@@ -22,5 +22,15 @@ cartRoute.get("/:id", function(req,res){
     res.send("ID Not Found")
 });
 
+let nextID:number = 5 //Create new id for the new item
+cartRoute.post("/", function(req,res){
+    let newItem:Cart = req.body //create variabel for the new item and give it the type of Cart
+    newItem.id += nextID //Because the newItem is of type Cart, it should have a id. assigne the id using the created id variabel
+    cartArray.push(newItem) // push the new item, with the now assigned id, into the array of items
+    res.status(201) //Status code for "created item"
+    res.send("Item was created") //Messaging using that the item was created
+    res.json(cartArray) //Check if the newItem is there in the list
+});
+
 
 export default cartRoute
