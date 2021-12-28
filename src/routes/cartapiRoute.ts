@@ -40,6 +40,15 @@ cartRoute.put("/:id", function(req,res){
     res.status(200)
     res.send("Item was updated")
     res.json(cartArray)
+});
+
+cartRoute.delete("/:id", function(req,res){
+   let itemIndex:number = cartArray.findIndex(item => {if(item.id === parseInt(req.params.id)){
+        cartArray.splice(itemIndex,1)
+        res.status(204) //No content code
+        res.json("")
+    }})
+    
 })
 
 export default cartRoute
