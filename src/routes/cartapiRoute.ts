@@ -14,8 +14,8 @@ cartRoute.get("/", function(req, res){ //Set up the function with the request an
 });
 
 cartRoute.get("/:id", function(req,res){
-    let filteredId:Cart[] = cartArray.filter(item => {if(item.id === parseInt(req.params.id) ){
-        res.json(filteredId);
+    cartArray.filter(item => {if(item.id === parseInt(req.params.id) ){
+        res.json(item);
         res.status(200);
     }})
     res.status(404)
