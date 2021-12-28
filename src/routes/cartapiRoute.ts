@@ -33,4 +33,13 @@ cartRoute.post("/", function(req,res){
 });
 
 
+cartRoute.put("/:id", function(req,res){
+    cartArray.forEach(item => {if(item.id === parseInt(req.params.id)){
+        item.price = 10
+    }})
+    res.status(200)
+    res.send("Item was updated")
+    res.json(cartArray)
+})
+
 export default cartRoute
