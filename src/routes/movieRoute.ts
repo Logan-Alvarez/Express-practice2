@@ -1,11 +1,11 @@
-import { Movie } from "../models/movieInterface";
+import { Movie } from "../models/movieInterface"; //Import move interface and express
 import express from "express"
-const movieRoutes = express.Router()
+const movieRoutes = express.Router() //Setting up route with express.Router()
 
 const MoviesList: Movie[] = [
     {id:1, title:"Lion King", year:1994, animated: true },
     {id:2, title:"Toy story", year:1995, animated: true },
-    {id:3, title:"Avengers", year:2012, animated: false },
+    {id:3, title:"Avengers", year:2012, animated: false }, //Create movie list (Jurassic Park is the best one)
     {id:4, title:"Jurassic Park", year:1993, animated: false },
     {id:5, title:"Black Panther", year:2018, animated: false }
 ];
