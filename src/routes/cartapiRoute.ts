@@ -26,8 +26,8 @@ cartRoute.get("/", function (req,res){
     let maxPriceQ:string = req.query.maxPrice as string
     if(maxPriceQ){
         let maxPrice:number = parseInt(maxPriceQ)
-        cartArray.filter(item => item.price <= maxPrice)
-        res.json("it worked")
+        let filteredPrice: Cart[] = cartArray.filter(item => item.price <= maxPrice)
+        res.json(filteredPrice)
     }
     else{
         res.json("It didn't work")
@@ -35,12 +35,12 @@ cartRoute.get("/", function (req,res){
 
 });
 
-cartRoute.get("/", function(req,res){
-    let preFixQ:string = req.query.prefix as string
-    if(preFixQ){
-        let filtered
-    }
-})
+// cartRoute.get("/", function(req,res){
+//     let preFixQ:string = req.query.prefix as string
+//     if(preFixQ){
+//         let filtered 
+//     }
+// })
 
 let nextID:number = 5; //Create new id for the new item
 cartRoute.post("/", function(req,res){

@@ -1,13 +1,18 @@
 import express from "express"
 import movieRoutes from "./routes/movieRoute"
 import cartRoute from "../src/routes/cartapiRoute"
+import cors from "cors";
 const app = express()
 
-const port = 3002
+const port = 3000
 
 
 // app.use("/api/movies", movieRoutes)
 app.use("/cart-items", cartRoute)
+
+
+
+app.use(cors());
 
 
 
