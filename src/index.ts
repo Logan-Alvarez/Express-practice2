@@ -7,7 +7,7 @@ const port = 3002
 
 
 // app.use("/api/movies", movieRoutes)
-app.use("/cart-items/", cartRoute)
+app.use("/cart-items", cartRoute)
 
 
 
