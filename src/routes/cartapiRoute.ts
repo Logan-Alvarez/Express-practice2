@@ -30,17 +30,34 @@ cartRoute.get("/", function (req,res){
         res.json(filteredPrice)
     }
     else{
-        res.json("It didn't work")
+        res.send("It didn't work")
     }
 
 });
 
-// cartRoute.get("/", function(req,res){
-//     let preFixQ:string = req.query.prefix as string
-//     if(preFixQ){
-//         let filtered 
-//     }
-// })
+cartRoute.get("/", function(req,res){
+    let preFixQ:string = req.query.prefix as string 
+    if(preFixQ){
+        let filteredPrefix:Cart[] = cartArray.filter(item => item.product.charAt(0) === preFixQ.charAt(0))
+        res.json(filteredPrefix)
+    }else{
+        res.send("It didn't work")
+    }
+});
+
+
+cartRoute.get("/", function(req,res){
+    let pageSizeQ:string = req.query.pageSize as string
+    if(pageSizeQ){
+        let newArray:Cart[] = [];
+        let pageSize:number = parseInt(pageSizeQ)
+        for(let i = 0; i <= pageSize; i++){
+            newArray.push(cartArray[i])
+            res.json(newArray)
+        }
+       
+    }
+});
 
 let nextID:number = 5; //Create new id for the new item
 cartRoute.post("/", function(req,res){
